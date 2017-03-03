@@ -28,5 +28,6 @@ class Home extends CI_Controller {
 	{
 		die('tes');
 	}
+	
 
 }

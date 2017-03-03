@@ -26,12 +26,7 @@ jQuery(document).ready(function() {
                
    qdpm_app_init(); 
    
-   <?php 
-      if($sf_user->getCulture()!='en')
-      {
-       // include_partial('global/datepicker.js');
-      } 
-   ?>
+   
         
 });
               

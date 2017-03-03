@@ -3,7 +3,7 @@
 <div class="content">
 
 <div class="alert alert-danger">
-	<?php echo validation_errors(); ?>
+	<?php echo $message; ?>
 </div>
 <?php echo form_open('index.php/login/signin'); ?>
 
@@ -27,13 +27,14 @@
 </div>
 
 <div class="form-actions">			
-      
-     <label class="checkbox"> Remember Me</label>
+       <?php echo lang('login_remember_label', 'remember');?>
+    <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?>
+    
       
 			<button type="submit" class="btn btn-info pull-right">Login </button>
 </div>
 
 <div class="forget-password">	
-	<p><a href="login/restorePassword">Password forgotten?</a></p>
+	<p><a href="<?php echo base_url();?>/index.php/login/forgot_password">Password forgotten?</a></p>
 </div>
 </form>

@@ -60,7 +60,7 @@
     
             
      <link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url();?>assets/css/app.css?v=1" />
-    
+    <link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url();?>assets/css/skins/default/default.css" />
 
     <link rel="icon" type="image/x-icon" href="<?php echo base_url();?>favicon.ico" />
     <link rel="shortcut icon" href="<?php echo base_url();?>favicon.ico" />
