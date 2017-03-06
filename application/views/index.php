@@ -1,4 +1,4 @@
 <?php 
-die('test');
+//die('test');
 
 ?>

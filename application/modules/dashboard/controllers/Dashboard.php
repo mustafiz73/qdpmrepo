@@ -35,14 +35,40 @@ class Dashboard extends CI_Controller {
 		{
 			redirect('index.php/login', 'refresh');
 		}
+		$this->data['users'] = $this->ion_auth->users()->result();
+			foreach ($this->data['users'] as $k => $user)
+			{
+				$this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
+			}
+
 		$this->load->view('templates/layout');
 		$this->load->view('templates/sidebar');
-		$this->load->view('index');
+		$this->load->view('index',$this->data);
 		$this->load->view('templates/footerlayout');
 	}
+	public function checkUser(){
+		$userData = file_get_contents("php://input");
+		$tables = $this->config->item('tables','ion_auth');
+        $identity_column = $this->config->item('identity','ion_auth');
+        $this->data['identity_column'] = $identity_column;
+		$this->form_validation->set_rules('email', $this->lang->line('create_user_validation_email_label'), 'required|valid_email|is_unique[' . $tables['users'] . '.email]');
+		 if ($this->form_validation->run() == true)
+        {
+            $email    = strtolower($userData['email']);
+            $identity = ($identity_column==='email') ? $email : $userData['email'];
+           echo 1;
+           
+        }else{
+        	$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
+        	echo 1;
+        	
+        }
+	}
 	// create a new user
+
 	public function create_user()
     {
+
         $this->data['title'] = $this->lang->line('create_user_heading');
 
         if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
@@ -67,9 +93,9 @@ class Dashboard extends CI_Controller {
             $this->form_validation->set_rules('email', $this->lang->line('create_user_validation_email_label'), 'required|valid_email|is_unique[' . $tables['users'] . '.email]');
         }
         $this->form_validation->set_rules('phone', $this->lang->line('create_user_validation_phone_label'), 'trim');
-        $this->form_validation->set_rules('company', $this->lang->line('create_user_validation_company_label'), 'trim');
-        $this->form_validation->set_rules('password', $this->lang->line('create_user_validation_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
-        $this->form_validation->set_rules('password_confirm', $this->lang->line('create_user_validation_password_confirm_label'), 'required');
+       // $this->form_validation->set_rules('company', $this->lang->line('create_user_validation_company_label'), 'trim');
+        // // $this->form_validation->set_rules('password', $this->lang->line('create_user_validation_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
+        // $this->form_validation->set_rules('password_confirm', $this->lang->line('create_user_validation_password_confirm_label'), 'required');
 
         if ($this->form_validation->run() == true)
         {
@@ -89,7 +115,7 @@ class Dashboard extends CI_Controller {
             // check to see if we are creating the user
             // redirect them back to the admin page
             $this->session->set_flashdata('message', $this->ion_auth->messages());
-            redirect("auth", 'refresh');
+            redirect("dashboard", 'refresh');
         }
         else
         {
@@ -121,12 +147,12 @@ class Dashboard extends CI_Controller {
                 'type'  => 'text',
                 'value' => $this->form_validation->set_value('email'),
             );
-            $this->data['company'] = array(
-                'name'  => 'company',
-                'id'    => 'company',
-                'type'  => 'text',
-                'value' => $this->form_validation->set_value('company'),
-            );
+            // $this->data['company'] = array(
+            //     'name'  => 'company',
+            //     'id'    => 'company',
+            //     'type'  => 'text',
+            //     'value' => $this->form_validation->set_value('company'),
+            // );
             $this->data['phone'] = array(
                 'name'  => 'phone',
                 'id'    => 'phone',
@@ -139,12 +165,12 @@ class Dashboard extends CI_Controller {
                 'type'  => 'password',
                 'value' => $this->form_validation->set_value('password'),
             );
-            $this->data['password_confirm'] = array(
-                'name'  => 'password_confirm',
-                'id'    => 'password_confirm',
-                'type'  => 'password',
-                'value' => $this->form_validation->set_value('password_confirm'),
-            );
+            // $this->data['password_confirm'] = array(
+            //     'name'  => 'password_confirm',
+            //     'id'    => 'password_confirm',
+            //     'type'  => 'password',
+            //     'value' => $this->form_validation->set_value('password_confirm'),
+            // );
 
             $this->_render_page('auth/create_user', $this->data);
         }

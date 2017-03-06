@@ -11,7 +11,7 @@ class User_model extends CI_Model {
 	}
 	
 	public function Emailcheck($email) {
-		$query = $this->db->get_where('Users', array('email' => $email));
+		$query = $this->db->get_where('users', array('email' => $email));
 		return $query->row_array();
 
 	}

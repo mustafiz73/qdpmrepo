@@ -86,18 +86,28 @@
     <tr role="row"><th aria-label="" colspan="1" rowspan="1" role="columnheader" class="sorting_disabled" data-bsortable="false" style="width: 21px;"><div id="uniform-multiple_selected_all" class="checker"><span><input name="multiple_selected_all" id="multiple_selected_all" class="group-checkable" data-set="#table-users .checkboxes" type="checkbox"></span></div></th><th aria-label="Action" style="width: 52px;" colspan="1" rowspan="1" role="columnheader" class="sorting_disabled" data-bsortable="false"><div>Action</div></th><th aria-label="Id: activate to sort column ascending" style="width: 14px;" colspan="1" rowspan="1" aria-controls="table-users" tabindex="0" role="columnheader" class="sorting"><div>Id</div></th><th aria-label="Group: activate to sort column ascending" style="width: 53px;" colspan="1" rowspan="1" aria-controls="table-users" tabindex="0" role="columnheader" class="sorting"><div>Group</div></th><th aria-label="Photo: activate to sort column ascending" style="width: 50px;" colspan="1" rowspan="1" aria-controls="table-users" tabindex="0" role="columnheader" class="sorting"><div>Photo</div></th><th aria-label="Name: activate to sort column ascending" style="width: 1133px;" colspan="1" rowspan="1" aria-controls="table-users" tabindex="0" role="columnheader" class="sorting" width="100%"><div>Name</div></th><th aria-label="Email: activate to sort column ascending" style="width: 121px;" colspan="1" rowspan="1" aria-controls="table-users" tabindex="0" role="columnheader" class="sorting"><div>Email</div></th><th aria-label="Url: activate to sort column ascending" style="width: 17px;" colspan="1" rowspan="1" aria-controls="table-users" tabindex="0" role="columnheader" class="sorting"><div>Url</div></th><th aria-label="Active?: activate to sort column ascending" style="width: 44px;" colspan="1" rowspan="1" aria-controls="table-users" tabindex="0" role="columnheader" class="sorting"><div>Active?</div></th></tr>
   </thead>
   
-<tbody aria-relevant="all" aria-live="polite" role="alert"><tr class="odd">
+<tbody aria-relevant="all" aria-live="polite" role="alert">
+  <?php foreach ($users as $user) { ?>
+  <tr class="odd">
       <td class="  sorting_1"><div id="uniform-multiple_selected_94" class="checker"><span><input name="multiple_selected[]" id="multiple_selected_94" value="94" class="checkboxes" <="" td="" type="checkbox"></span></div>
       </td><td class=" "><a class="btn btn-default btn-xs purple" onclick="if (confirm('Are you sure?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'post'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', 'sf_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_csrf_token'); m.setAttribute('value', 'ef376941f1f04d43dc683d6f97142205'); f.appendChild(m);f.submit(); };return false;" href="/qdpmrepo/users/delete/id/94"><i class="fa fa-trash-o"></i></a> <a href="#" class="btn btn-default btn-xs purple" onclick="openModalBox('http://local.bizdesire.com/qdpmrepo/users/edit/id/94'); return false;"><i class="fa fa-edit"></i></a></td>
-      <td class=" ">94</td>
-      <td class=" ">Customer</td>
-      <td class=" "><img class="user-photo" src="http://local.bizdesire.com/qdpmrepo/uploads/users/480397-FB_IMG_1467264044661.jpg"></td>
-      <td class=" "><a href="#" onclick="openModalBox('/qdpmrepo/users/info/id/94')">shintu</a></td>      
-      <td class=" ">shintu@bizdesire.com</td>  
+      <td class=" "><?php echo $user->id;?></td>
+      <!-- <td class=" ">Customer</td> -->
+      <td></td>
+      <td class=" "><img class="user-photo" src=""></td>
+      <td class=" "><a href="#" onclick="openModalBox('/qdpmrepo/users/info/id/<?php echo $user->id;?>')"><?php echo $user->first_name;?>
+      </a></td>      
+      <td class=" "><?php echo $user->email;?></td>  
       
       <td class=" "></td>                
       <td class=" ">Yes</td>      
-    </tr></tbody></table></div><div class="row"><div class="col-md-5 col-sm-12"><div id="table-users_info" class="dataTables_info">Displaying 1 - 1, Total: 1 </div></div><div class="col-md-7 col-sm-12"><div class="dataTables_paginate paging_bootstrap"><ul style="visibility: visible;" class="pagination"><li class="prev disabled"><a href="#" title="Previous Page"><i class="fa fa-angle-left"></i></a></li><li class="active"><a href="#">1</a></li><li class="next disabled"><a href="#" title="Next Page"><i class="fa fa-angle-right"></i></a></li></ul></div></div></div></div>
+    </tr>  
+  <?php } ?>
+  
+
+  </tbody>
+
+  </table></div><div class="row"><div class="col-md-5 col-sm-12"><div id="table-users_info" class="dataTables_info">Displaying 1 - 1, Total: 1 </div></div><div class="col-md-7 col-sm-12"><div class="dataTables_paginate paging_bootstrap"><ul style="visibility: visible;" class="pagination"><li class="prev disabled"><a href="#" title="Previous Page"><i class="fa fa-angle-left"></i></a></li><li class="active"><a href="#">1</a></li><li class="next disabled"><a href="#" title="Next Page"><i class="fa fa-angle-right"></i></a></li></ul></div></div></div></div>
 
 </div>
 
@@ -199,7 +209,7 @@
 <!-- BEGIN FOOTER -->
 <div class="footer">
 <div class="footer-inner">
-	 <small>Powered by <a class="copyright_link" href="http://qdpm-ex.com" target="_blank">qdPM Extended  4.1</a></small>
+	 <small>Powered by <a class="copyright_link" href="http://qdpm-ex.com" target="_blank">qdPM</a></small>
 </div>
 <div class="footer-tools">
 	<span class="go-top">

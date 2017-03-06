@@ -65,7 +65,7 @@
         <li class="start  active">
         <a href="/qdpmrepo/users"><i class="fa fa-user"></i> <span class="title">Users</span><span class="arrow open"></span></a>
         <ul class="sub-menu"><li>
-        <a onclick="openModalBox('/qdpmrepo/users/new')" class="cursor-pointer"><span class="title">Add User</span></a>
+        <a onclick="openModalBox('<?php echo base_url();?>dashboard/create_user')" class="cursor-pointer"><span class="title">Add User</span></a>
         </li>
 <li class="active">
         <a href="/qdpmrepo/users"><span class="title">View All</span></a>
