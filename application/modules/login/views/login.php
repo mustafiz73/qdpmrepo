@@ -5,7 +5,7 @@
 <div class="alert alert-danger">
 	<?php echo $message; ?>
 </div>
-<?php echo form_open('index.php/login/signin'); ?>
+<?php echo form_open('login/signin'); ?>
 
 <h3 class="form-title">Welcome </h3>
 

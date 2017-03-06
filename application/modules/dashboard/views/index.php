@@ -22,7 +22,7 @@
 
 <table width="100%">
   <tbody><tr>
-    <td><button class="btn btn-primary" onclick="openModalBox('<?php echo base_url();?>/index.php/dashboard/create_user')">Add User</button> <input value="Export Selected" class="btn btn-default" onclick="openMultipleActionModalBox('/qdpm/index.php/users/export')" type="button"></td>
+    <td><button class="btn btn-primary" onclick="openModalBox('<?php echo base_url();?>/dashboard/create_user')">Add User</button> <input value="Export Selected" class="btn btn-default" onclick="openMultipleActionModalBox('/qdpmrepo/users/export')" type="button"></td>
     <td align="right"><div style="float: right;"> 
 
         <div id="search_menu" class="yuimenubar yuimenubarnav yui-module yui-overlay visible" style="display: block; z-index: 0; position: static; visibility: visible;">
@@ -35,7 +35,7 @@
             <ul>
 
               <li class="yuimenuitem"><span>
-    <form action="/qdpm/index.php/users" method="post">
+    <form action="/qdpmrepo/users" method="post">
     <table style="margin: 5px 0;" class="contentTable">
       <tbody><tr>
         <td valign="top">Search</td>
@@ -88,11 +88,11 @@
   
 <tbody aria-relevant="all" aria-live="polite" role="alert"><tr class="odd">
       <td class="  sorting_1"><div id="uniform-multiple_selected_94" class="checker"><span><input name="multiple_selected[]" id="multiple_selected_94" value="94" class="checkboxes" <="" td="" type="checkbox"></span></div>
-      </td><td class=" "><a class="btn btn-default btn-xs purple" onclick="if (confirm('Are you sure?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'post'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', 'sf_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_csrf_token'); m.setAttribute('value', 'ef376941f1f04d43dc683d6f97142205'); f.appendChild(m);f.submit(); };return false;" href="/qdpm/index.php/users/delete/id/94"><i class="fa fa-trash-o"></i></a> <a href="#" class="btn btn-default btn-xs purple" onclick="openModalBox('http://localhost/qdpm/index.php/users/edit/id/94'); return false;"><i class="fa fa-edit"></i></a></td>
+      </td><td class=" "><a class="btn btn-default btn-xs purple" onclick="if (confirm('Are you sure?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'post'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', 'sf_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_csrf_token'); m.setAttribute('value', 'ef376941f1f04d43dc683d6f97142205'); f.appendChild(m);f.submit(); };return false;" href="/qdpmrepo/users/delete/id/94"><i class="fa fa-trash-o"></i></a> <a href="#" class="btn btn-default btn-xs purple" onclick="openModalBox('http://local.bizdesire.com/qdpmrepo/users/edit/id/94'); return false;"><i class="fa fa-edit"></i></a></td>
       <td class=" ">94</td>
       <td class=" ">Customer</td>
-      <td class=" "><img class="user-photo" src="http://localhost/qdpm/uploads/users/480397-FB_IMG_1467264044661.jpg"></td>
-      <td class=" "><a href="#" onclick="openModalBox('/qdpm/index.php/users/info/id/94')">shintu</a></td>      
+      <td class=" "><img class="user-photo" src="http://local.bizdesire.com/qdpmrepo/uploads/users/480397-FB_IMG_1467264044661.jpg"></td>
+      <td class=" "><a href="#" onclick="openModalBox('/qdpmrepo/users/info/id/94')">shintu</a></td>      
       <td class=" ">shintu@bizdesire.com</td>  
       
       <td class=" "></td>                
